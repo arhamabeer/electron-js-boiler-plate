@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 
 const createWindow = () => {
@@ -9,6 +9,45 @@ const createWindow = () => {
       preload: path.join(__dirname, "preload.js"),
     },
   });
+
+  //! 2nd Commit
+
+  let data = [
+    {
+      userId: 1,
+      id: 1,
+      title: "delectus aut autem",
+      completed: false,
+    },
+    {
+      userId: 1,
+      id: 1,
+      title: "delectus aut autem",
+      completed: false,
+    },
+    {
+      userId: 1,
+      id: 1,
+      title: "delectus aut autem",
+      completed: false,
+    },
+    {
+      userId: 1,
+      id: 1,
+      title: "delectus aut autem",
+      completed: false,
+    },
+    {
+      userId: 1,
+      id: 1,
+      title: "delectus aut autem",
+      completed: false,
+    },
+  ];
+
+  ipcMain.handle("wow", () => data);
+
+  //! 2nd Commit
 
   win.loadFile("index.html");
   win.webContents.openDevTools();

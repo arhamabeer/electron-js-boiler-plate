@@ -15,3 +15,14 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+//! 2nd Commit
+
+const information = document.getElementById("info");
+information.innerText = `This app is using Chrome (v${pkg_vers.chrome()}), Node.js (v${pkg_vers.node()}), and Electron (v${pkg_vers.electron()})`;
+
+const ipcCheck = async () => {
+  const response = await pkg_vers.hello();
+  console.log(response);
+};
+ipcCheck();
